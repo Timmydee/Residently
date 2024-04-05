@@ -1,10 +1,10 @@
 # React Native Application
 
-This is a React Native application built for Residently technical assessment.
+This is a React Native mobile application built for Residently technical assessment.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Follow these instructions to get a copy of the project up and running on your local machine.
 
 ### Prerequisites
 
@@ -19,10 +19,6 @@ Before you begin, ensure you have met the following requirements:
 Follow these steps to install the project:
 
 1. Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/your-project.git
-```
 
 2. Navigate to the project directory:
 
@@ -64,5 +60,5 @@ Once the application is running, you can navigate through the screens using the 
 
 ## Author
 
-- Timilehin
+- Timilehin Dahunsi
 
