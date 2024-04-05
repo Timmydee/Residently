@@ -66,7 +66,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
       <View style={{ alignItems: 'center' }}>
         <KeyboardAvoidingView style={styles.signUp}>
           <View style={styles.imageCol}>
-            <Image source={(require('../../assets/Residential.png'))} />
+            <Image source={(require('../../../assets/Residential.png'))} />
           </View>
           <View style={styles.TextCol}>
             <Text style={styles.H1}>Welcome!</Text>
@@ -75,7 +75,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
           <View style={styles.form}>
             <View style={styles.Input}>
-              <Image source={(require('../../assets/mail.png'))} />
+              <Image source={(require('../../../assets/mail.png'))} />
               <TouchableOpacity onPress={() => setIsFocused(true)} disabled={isFocused}>
                 {isFocused || email ? (
                   <View style={styles.emailInput}>
@@ -97,7 +97,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
             <View style={[styles.Input, styles.inputPass]}>
               <View style={styles.passInput}>
-                <Image source={(require('../../assets/password.png'))} />
+                <Image source={(require('../../../assets/password.png'))} />
                 <TouchableOpacity onPress={() => setIsPassFocus(true)}>
                   {isPassFocus || email ? (
                     <View style={styles.emailInput}>
@@ -131,7 +131,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
             }
           </View>
 
-          <Text style={{ color: '#FF8600' }}>Sign up <Text style={{ color: '#6E717C' }}>instead</Text> </Text>
+          <Text style={{ color: '#FF8600', fontFamily:'Satoshi-Regular', fontSize:14 }}>Sign up <Text style={{ color: '#6E717C' }}>instead</Text> </Text>
         </KeyboardAvoidingView>
       </View>
     </SafeAreaView>

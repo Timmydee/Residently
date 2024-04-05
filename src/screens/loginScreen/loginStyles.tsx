@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
       color: 'gray',
       textAlign: 'center',
       lineHeight: 26,
-      fontFamily: 'Satoshi-Medium'
+      fontFamily: 'Satoshi-Regular'
     },
     form: {
       marginTop: 30,
@@ -59,7 +59,8 @@ export const styles = StyleSheet.create({
     },
     placeholderText: {
       color: '#6E717C',
-      fontSize: 12
+      fontSize: 12,
+      fontFamily: 'Satoshi-Regular'
     },
     error: {
       fontSize: 12,
@@ -67,7 +68,10 @@ export const styles = StyleSheet.create({
     },
     textInput: {
       width: 'auto',
-      maxWidth: '100%'
+      maxWidth: '100%',
+      fontFamily: 'Satoshi-Medium',
+      fontSize: 16,
+      color: '#25292D'
     },
     inputPass: {
       justifyContent: 'space-between'

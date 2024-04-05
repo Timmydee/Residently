@@ -45,7 +45,7 @@ const UserListScreen: React.FC = () => {
         </View>
       </View>
       <View style={[styles.status, { backgroundColor: item.status === 'Active' ? '#E1EAD6' : 'transparent' }]}>
-        <Text>{item.status}</Text>
+        <Text style={styles.statusText}>{item.status}</Text>
       </View>
     </View>
   );
@@ -61,7 +61,7 @@ const UserListScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
-        <Text style={styles.TextH1}>User</Text>
+        <Text style={styles.TextH1}>Users</Text>
         <View style={styles.userList}>
           <FlatList
             data={users}
@@ -74,6 +74,5 @@ const UserListScreen: React.FC = () => {
     </View>
   );
 };
-
 
 export default UserListScreen;

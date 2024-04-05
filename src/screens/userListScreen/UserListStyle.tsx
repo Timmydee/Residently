@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
     },
     TextH1: {
-      fontSize: 32,
+      fontSize: 24,
       fontFamily: 'Satoshi-Bold',
       color: '#322B8C'
     },
@@ -64,14 +64,24 @@ export const styles = StyleSheet.create({
     },
     status: {
       backgroundColor: 'transparent',
-      padding: 10,
-      borderRadius: 17,
+      paddingVertical: 1.78,
+      paddingHorizontal: 7.28,
+      borderRadius: 10,
       borderColor: '#FFF',
-      borderWidth: 1,
+      borderWidth: 1.2,
+      width: 53,
+      height: 17,
+      alignItems: 'center',
+      justifyContent:'center'
+    },
+    statusText: {
+      fontSize: 10,
+      fontFamily: 'Satoshi-Regular',
+      color: '#25292D',
     },
     initialsText: {
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: 'Satoshi-Medium',
       color: '#000000',
     },
   });
