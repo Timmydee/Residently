@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, Text, View, Image, TextInput, KeyboardAvoidingView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { SafeAreaView, Text, View, Image, TextInput, KeyboardAvoidingView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { styles } from './loginStyles'
 
 type Props = {
   navigation: StackNavigationProp<any>
@@ -13,6 +14,8 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const [isPassFocus, setIsPassFocus] = useState(false);
 
   // function to validate email
   const validateEmail = (email: string) => {
@@ -73,29 +76,48 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
           <View style={styles.form}>
             <View style={styles.Input}>
               <Image source={(require('../../assets/mail.png'))} />
-              <TextInput
-                style={styles.textInput}
-                onChangeText={setEmail}
-                value={email}
-                placeholder="Email Address"
-                keyboardType="email-address"
-                autoCapitalize="none"
-              />
+              <TouchableOpacity onPress={() => setIsFocused(true)} disabled={isFocused}>
+                {isFocused || email ? (
+                  <View style={styles.emailInput}>
+                    <Text style={styles.placeholderText}>Email Address</Text>
+                    <TextInput
+                      style={styles.textInput}
+                      onChangeText={setEmail}
+                      value={email}
+                      keyboardType="email-address"
+                      autoCapitalize="none"
+                    />
+                  </View>
+                ) :
+                  <Text style={styles.placeholderText}>Email Address</Text>
+                }
+              </TouchableOpacity>
             </View>
             {!!emailError && <Text style={styles.error}>{emailError}</Text>}
 
             <View style={[styles.Input, styles.inputPass]}>
               <View style={styles.passInput}>
                 <Image source={(require('../../assets/password.png'))} />
-                <TextInput
-                  style={styles.textInput}
-                  onChangeText={setPassword}
-                  value={password}
-                  placeholder="Password"
-                  secureTextEntry
-                />
+                <TouchableOpacity onPress={() => setIsPassFocus(true)}>
+                  {isPassFocus || email ? (
+                    <View style={styles.emailInput}>
+                      <Text style={styles.placeholderText}>Password</Text>
+                      <TextInput
+                        style={styles.textInput}
+                        onChangeText={setPassword}
+                        value={password}
+                        secureTextEntry
+                      />
+                    </View>
+                  ) :
+                    <Text style={styles.placeholderText}>Password</Text>
+                  }
+                </TouchableOpacity>
               </View>
-              <Text style={styles.forgotPass}>Forgot?</Text>
+              {!isPassFocus &&
+                <Text style={styles.forgotPass}>Forgot?</Text>
+              }
+
             </View>
             {!!passwordError && <Text style={styles.error}>{passwordError}</Text>}
           </View>
@@ -118,98 +140,3 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 }
 
 export default LoginScreen
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    color: 'black',
-  },
-  signUp: {
-    marginTop: '15%',
-    alignItems: 'center'
-  },
-  imageCol: {
-    width: '80%',
-  },
-  TextCol: {
-    marginTop: 50,
-    alignItems: 'center'
-  },
-  H1: {
-    fontSize: 32,
-    marginBottom: 10,
-    fontFamily: 'Satoshi-Bold',
-    color: '#322B8C'
-  },
-  p: {
-    width: 293,
-    fontSize: 16,
-    marginBottom: 10,
-    color: 'gray',
-    textAlign: 'center',
-    lineHeight: 26,
-    fontFamily: 'Satoshi-Medium'
-  },
-  form: {
-    marginTop: 30,
-    width: '100%',
-  },
-  Input: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 10,
-    width: 325,
-    height: 56,
-    borderWidth: 0.5,
-    color: 'black',
-    marginVertical: 10,
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    backgroundColor: '#F9FAFC',
-    borderColor: '#EFF2F7'
-  },
-  error:{
-    fontSize: 12,
-    color: '#FF8600'
-  },
-  textInput:{
-    width: '70%'
-  },
-  inputPass: {
-    justifyContent: 'space-between'
-  },
-  passInput: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 10,
-    flexDirection: 'row',
-  },
-  forgotPass: {
-    textAlign: 'right',
-    color: '#FF8600',
-    fontSize: 14,
-    fontFamily: 'Satoshi-Regular'
-  },
-  btnCol: {
-    alignItems: 'center',
-    marginTop: 70,
-    marginBottom: 10,
-  },
-  btnLogin: {
-    borderWidth: 0,
-    borderRadius: 8,
-    backgroundColor: '#FF8600',
-    width: 325,
-    height: 48,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  btnLoginText: {
-    fontSize: 16,
-    fontFamily: 'Satoshi-Bold',
-    color: '#ffffff',
-  }
-})

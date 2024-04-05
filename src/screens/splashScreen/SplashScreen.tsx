@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { styles } from './SplashStyles'
 
 type Props = {
     navigation: StackNavigationProp<any>
@@ -29,11 +30,3 @@ const SplashScreen: React.FC<Props> = ({ navigation }) => {
 
 export default SplashScreen
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%'
-    },
-})
